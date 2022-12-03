@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-//Testing to see if github reads changes
+//Testing to see if GitHub reads changes for MacOS
 
 public class Game extends Canvas implements Runnable{
 
@@ -13,7 +13,7 @@ public class Game extends Canvas implements Runnable{
 	//Good aspect ratio for window
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	
-	//initilizaing everything
+	//Declaring everything
 	private Thread thread;
 	private boolean running = false;
 	Random r = new Random();
