@@ -44,7 +44,7 @@ public class Spawn {
 						break;
 				
 				case 6:
-					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT), ID.FastEnemy, handler));
+					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
 					
 					break;
 				
