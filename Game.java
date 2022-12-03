@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-//Testing to see if GitHub reads changes for MacOS
-
 public class Game extends Canvas implements Runnable{
 
 	private static final long serialVersionUID = 1550691097823471818L;
@@ -42,11 +40,8 @@ public class Game extends Canvas implements Runnable{
 		
 		//adds player object to game
 		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-		
-		//add basic enemy object to game
-		handler.addObject(new BasicEnemy(r.nextInt(WIDTH),r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-		
-		handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
+			
+		handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
 		
 		
 		

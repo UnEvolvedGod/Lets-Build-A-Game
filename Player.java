@@ -45,7 +45,13 @@ public class Player extends GameObject{
 					//collsion code
 					HUD.HEALTH -=2;
 				}
-			} 
+				//if the player ever gets close enough to intersect with the boss, they will auto die
+			}else if(tempObject.getID() == ID.EnemyBoss) {
+				if(getBounds().intersects(tempObject.getBounds())) {
+					//collsion code
+					HUD.HEALTH =0;
+				}
+			}
 			
 			
 			
