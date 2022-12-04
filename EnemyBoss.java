@@ -12,6 +12,8 @@ public class EnemyBoss extends GameObject{
 	private int timer2 = 50;//timer used for when boss goes horizontal
 	Random r = new Random();
 	
+	Color mistyRose = new Color(255,228,225);
+	
 	
 	//Objects location
 	public EnemyBoss(int x, int y, ID id, Handler handler) {
@@ -66,7 +68,7 @@ public class EnemyBoss extends GameObject{
 
 	//Enemy graphics
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(mistyRose);
 		g.fillRect((int)x,(int)y,96,96);
 		
 	}

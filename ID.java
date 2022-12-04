@@ -8,5 +8,6 @@ public enum ID {
 	FastEnemy(),
 	SmartEnemy(),
 	EnemyBoss(),
-	RepeaterEnemy();
+	RepeaterEnemy(),
+	HomerEnemy;
 }
