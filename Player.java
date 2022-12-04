@@ -38,7 +38,7 @@ public class Player extends GameObject{
 			GameObject tempObject = handler.object.get(i);
 			
 			//if an object has tag of "BasicEnemy" something happens below
-			if(tempObject.getID() == ID.BasicEnemy||tempObject.getID() == ID.FastEnemy||tempObject.getID() == ID.SmartEnemy) {
+			if(tempObject.getID() == ID.BasicEnemy||tempObject.getID() == ID.FastEnemy||tempObject.getID() == ID.SmartEnemy||tempObject.getID() == ID.RepeaterEnemy) {
 				
 				//if "Hitbox"(bounds) hits(intersects) the "BasicEnemy" hitbox(bound), something occurs
 				if(getBounds().intersects(tempObject.getBounds())) {

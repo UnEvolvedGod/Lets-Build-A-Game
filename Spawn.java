@@ -29,13 +29,15 @@ public class Spawn {
 			
 			//Each case is a new level, with different features and enemies coming on certain levels
 			
+			//handler.addObject(new RepeaterEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.RepeaterEnemy, handler));
+			
 			switch(hud.getLevel()) {
 				case 2:
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
 						break;
 						
 				case 3:
-						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));						
+						handler.addObject(new RepeaterEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.RepeaterEnemy, handler));						
 						break;
 
 				case 4:
@@ -54,6 +56,14 @@ public class Spawn {
 					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
 					
 					break;
+					
+				case 15:
+					handler.clearEnemies();
+					HUD.HEALTH += 50;
+					
+					break;
+					
+				
 				
 				
 			}

@@ -45,6 +45,8 @@ public class Game extends Canvas implements Runnable{
 		
 		
 		
+		
+		
 	}
 	
 	//Starts game

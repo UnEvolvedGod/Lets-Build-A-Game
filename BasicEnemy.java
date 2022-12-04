@@ -1,4 +1,22 @@
 
+/*	Enemy Ideas
+ * 
+ * HomerEnemy: low-tracking homing missle
+ * 
+ * SonicEnemy: Super sonic tracker with delay
+ * 
+ * SpliceEnemy: Enemy splits during unknown time
+ * 
+ * EnemyBossTandem: 2 enemies work together ping pong while your in middle 
+ * with bullets getting stronger if they hit partner, 
+ * 
+ * Enemy with 2 weapons
+ * 
+ * 
+ * ENEMIES YOU VERSE HAVE SIMILAR THEME TO BOSS THEY WILL VERSE
+ * 
+ * */
+
 
 import java.awt.Color;
 import java.awt.Graphics;
