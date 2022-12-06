@@ -1,3 +1,4 @@
+package erq.letsbuildagame.etc;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;

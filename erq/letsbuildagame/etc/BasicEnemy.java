@@ -1,3 +1,4 @@
+package erq.letsbuildagame.etc;
 
 /*	Enemy Ideas
  * 

@@ -1,10 +1,11 @@
+package erq.letsbuildagame.etc;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import Game.STATE;
+import erq.letsbuildagame.etc.Game.STATE;
 
 public class Menu extends MouseAdapter{
 

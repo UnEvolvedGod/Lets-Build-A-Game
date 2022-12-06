@@ -1,3 +1,4 @@
+package erq.letsbuildagame.etc;
 
 //ID used to identify different objects
 public enum ID {

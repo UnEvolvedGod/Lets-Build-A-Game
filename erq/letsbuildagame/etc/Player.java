@@ -1,3 +1,4 @@
+package erq.letsbuildagame.etc;
 
 import java.util.Random;
 import java.awt.*;
