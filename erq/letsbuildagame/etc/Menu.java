@@ -23,8 +23,13 @@ public class Menu extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
-
-		// Play button
+		
+		//26:52
+		if(game.gameState == STATE.Menu) {
+			
+		}
+			
+			// Play button
 		if (mouseOver(mx, my, 210, 150, 200, 64)) {
 			game.gameState = STATE.Game;
 
@@ -43,10 +48,10 @@ public class Menu extends MouseAdapter {
 		}
 
 		// Back Button from help screen
-
 		if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, 210, 250, 200, 64)) {
-				game.gameState = STATE.Help;
+			if (mouseOver(mx, my, 410, 350, 200, 64)) {
+				game.gameState = STATE.Menu;
+				return;
 			}
 		}
 
@@ -111,11 +116,21 @@ public class Menu extends MouseAdapter {
 		} else if (game.gameState == STATE.Help) {
 
 			Font fnt = new Font("arial", 1, 50);
+			Font fnt1 = new Font("arial", 1, 25);
 
 			g.setFont(fnt);
 			g.setColor(Color.white);
-			g.drawString("Help", 240, 90);
+			g.drawString("Help", 260, 90);
 
+			g.setFont(fnt1);
+			g.setColor(Color.white);
+			g.drawString("Use WASD keys to move and dodge enemies", 65, 150);
+			g.drawString("Earn points for every second alive", 110, 195);
+			g.drawString("Survive as long as possible", 150, 240);
+			g.drawString("Good luck", 240, 285);
+			
+			
+			g.setFont(fnt);
 			g.setColor(Color.white);
 			g.drawRect(410, 350, 200, 64);
 			g.drawString("Back", 450, 400);
