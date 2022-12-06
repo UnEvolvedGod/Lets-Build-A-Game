@@ -17,8 +17,23 @@ public class Game extends Canvas implements Runnable{
 	Random r = new Random();
 	private HUD hud;
 	private Spawn spawner;
-	
+	private Menu menu;
 	private Handler handler;
+	
+	
+	/*When the program is run there are 2 states,
+	 * The Menu state and the Game state.
+	 * During menu state they will be able to pause 
+	 * the game, buy items, etc. During the Game 
+	 * state, this is where the gameplay is active.
+	 * While Menu state is active, the Game state is unactive
+	 * and vise versa. */
+	public enum STATE {
+		Menu,
+		Game
+	};
+	
+	public STATE gameState = STATE.Menu;
 	
 	public Game() {
 		//handles all objects
@@ -36,14 +51,18 @@ public class Game extends Canvas implements Runnable{
 		//Handles spawns for different levels 
 		spawner = new Spawn(handler, hud);
 		
-
+		menu = new Menu(this);
 		
-		//adds player object to game
-		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
+		if(gameState == STATE.Game) {
+			//adds player object to game
+			handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
+				
+			handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
 			
-		//handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
+			//handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
+		}
 		
-		handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
+		
 		
 		
 		
@@ -142,7 +161,14 @@ public class Game extends Canvas implements Runnable{
 		
 		handler.render(g);
 		
-		hud.render(g);
+		//Runs game
+		if(gameState == STATE.Game) {
+			hud.render(g);
+		}else if(gameState == STATE.Menu) {
+			menu.render(g);
+		}
+		
+		
 		
 		g.dispose();
 		bs.show();
@@ -153,8 +179,15 @@ public class Game extends Canvas implements Runnable{
 	//keeps objects updated every tick/second
 	private void tick() {
 		handler.tick();
-		hud.tick();
-		spawner.tick();
+		
+		//Runs game stops menu
+		if(gameState == STATE.Game) {
+			hud.tick();
+			spawner.tick();
+		}else if(gameState == STATE.Menu) {
+			menu.tick();
+		}
+		
 	}
 	
 	//Sets borders for certain objects so they dont leave the screen

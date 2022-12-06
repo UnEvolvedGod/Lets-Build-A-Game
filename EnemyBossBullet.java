@@ -9,7 +9,7 @@ public class EnemyBossBullet extends GameObject{
 
 	private Handler handler;
 	Random r = new Random();
-	
+	Color bulletColor = new Color(128,0,0);
 	
 	//Objects location
 	public EnemyBossBullet(int x, int y, ID id, Handler handler) {
@@ -35,12 +35,12 @@ public class EnemyBossBullet extends GameObject{
 		//removes bullet if it is out of view
 		if(y >= Game.HEIGHT) handler.removeObject(this);
 		
-		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.02f, handler));
+		handler.addObject(new Trail(x, y, ID.Trail, bulletColor, 16, 16, 0.02f, handler));
 	}
 
 	//Enemy graphics
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(bulletColor);
 		g.fillRect((int)x,(int)y,16,16);
 		
 	}

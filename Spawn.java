@@ -31,7 +31,7 @@ public class Spawn {
 			
 			//handler.addObject(new RepeaterEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.RepeaterEnemy, handler));
 			
-			/*
+			
 			switch(hud.getLevel()) {
 				case 2:
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
@@ -67,7 +67,7 @@ public class Spawn {
 				
 				
 				
-			}*/
+			}
 			
 			
 		
