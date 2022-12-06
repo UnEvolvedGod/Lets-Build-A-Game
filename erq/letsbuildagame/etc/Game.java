@@ -31,6 +31,7 @@ public class Game extends Canvas implements Runnable{
 	 * and vise versa. */
 	public enum STATE {
 		Menu,
+		Help,
 		Game
 	};
 	
@@ -39,9 +40,11 @@ public class Game extends Canvas implements Runnable{
 	public Game() {
 		//handles all objects
 		handler = new Handler();
+		menu = new Menu(this, handler);
 		
 		//handles user input
 		this.addKeyListener(new KeyInput(handler));
+		this.addMouseListener(menu);
 		
 		//Window game is played on
 		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);	
@@ -52,16 +55,8 @@ public class Game extends Canvas implements Runnable{
 		//Handles spawns for different levels 
 		spawner = new Spawn(handler, hud);
 		
-		menu = new Menu(this);
 		
-		if(gameState == STATE.Game) {
-			//adds player object to game
-			handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-				
-			handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.BasicEnemy, handler));
-			
-			//handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH - 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
-		}
+		
 		
 		
 		
@@ -165,7 +160,7 @@ public class Game extends Canvas implements Runnable{
 		//Runs game
 		if(gameState == STATE.Game) {
 			hud.render(g);
-		}else if(gameState == STATE.Menu) {
+		}else if(gameState == STATE.Menu || gameState == STATE.Help) {
 			menu.render(g);
 		}
 		
