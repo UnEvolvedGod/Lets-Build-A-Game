@@ -55,8 +55,13 @@ public class Player extends GameObject {
 					// collsion code
 					HUD.HEALTH = 0;
 				}
-			}
+			} else if (tempObject.getID() == ID.HomerEnemy) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					// collsion code
+					HUD.HEALTH -= 1;
+				}
 
+			}
 		}
 
 	}

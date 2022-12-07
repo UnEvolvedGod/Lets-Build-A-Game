@@ -39,7 +39,7 @@ public class MenuParticle extends GameObject {
 		if (x <= 0 || x >= Game.WIDTH - 16)
 			velX *= -1;
 
-		//https://www.youtube.com/watch?v=QgQUt3nuBx4 9:26
+		//https://youtu.be/QgQUt3nuBx4?t=566
 		handler.addObject(new Trail(x, y, ID.Trail, color, 12, 12, 0.05f, handler));
 	}
 

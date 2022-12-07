@@ -38,8 +38,8 @@ public class Menu extends MouseAdapter {
 				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
 						handler));
 
-				// handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH -
-				// 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
+				// handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH
+				// -50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
 			}
 
 			// Help Button

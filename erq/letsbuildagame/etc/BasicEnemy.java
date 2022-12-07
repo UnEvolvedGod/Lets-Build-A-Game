@@ -2,7 +2,7 @@ package erq.letsbuildagame.etc;
 
 /*	Enemy Ideas
  * 
- * HomerEnemy: low-tracking homing missle
+ * HomerEnemy: low-tracking homing missle SUCCESS, Homer works as intended but will be improved on
  * 
  * SonicEnemy: Super sonic tracker with delay
  * 
@@ -11,10 +11,38 @@ package erq.letsbuildagame.etc;
  * EnemyBossTandem: 2 enemies work together ping pong while your in middle 
  * with bullets getting stronger if they hit partner, 
  * 
+ * SlowEnemy: Large enemy that slows you and dmg over timer
+ * 
+ * ScramblerEnemy:If hit by movement flipped
+ * 
+ * DefectorEnemy: If you hit helpenemy, they kill other enemies for 
+ * certain amount of time
+ * 
  * Enemy with 2 weapons
  * 
  * 
  * ENEMIES YOU VERSE HAVE SIMILAR THEME TO BOSS THEY WILL VERSE
+ * 
+ * 
+ * Shop items ideas:
+ * 
+ * Time bomb: slows enemies for few seconds
+ * 
+ * Portal: teleport
+ * 
+ * Invisible: invisible for a few seconds
+ * 
+ * Scatter bomb: bomb spreads
+ * 
+ * Atomic bomb: Kills all enemies, only gotten in certain instances 
+ * 
+ * Knock back: pushes enemies away from you
+ * 
+ * Freeze: Freeze enemies 
+ * 
+ * Become worm: Gain extra lives/heads
+ * 
+ * Decoy: Enemies chase fake 
  * 
  * */
 

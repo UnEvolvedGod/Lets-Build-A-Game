@@ -58,6 +58,12 @@ public class Spawn {
 
 				break;
 
+			case 7:
+				handler.addObject(
+						new HomerEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.HomerEnemy, handler));
+
+				break;
+
 			case 10:
 				// gets rid of all enemies preparing for boss
 				handler.clearEnemies();

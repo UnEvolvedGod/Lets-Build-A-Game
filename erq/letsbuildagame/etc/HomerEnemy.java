@@ -8,7 +8,7 @@ public class HomerEnemy extends GameObject {
 
 	private Handler handler;
 	private GameObject player;
-	Color homerColor = new Color(204, 204, 0);
+	Color homerColor = new Color(50, 153, 204);
 
 	// Objects location
 	public HomerEnemy(int x, int y, ID id, Handler handler) {
@@ -26,22 +26,31 @@ public class HomerEnemy extends GameObject {
 
 	// velocity updated every tick/second
 	public void tick() {
-		x += velX;
-		y += velY;
+		x += velX * 3;
+		y += velY * 3;
 
 		float diffX = x - player.getX() - 16;
 		float diffY = y - player.getY() - 16;
+		
 		// calculates distance betweeen smartenemy and player
 		float distance = (float) Math
 				.sqrt((x - player.getX()) * (x - player.getX()) + (y - player.getY()) * (y - player.getY()));
 
-		// Figure out how to turn off tracking when close enough to player but maybe
-		// turn back on if far enough
-		/*
-		 * if((player.getX() - ) velX = (float) ((-1/distance) *diffX); velY = (float)
-		 * ((-1/distance) *diffY);
-		 */
+		
+		if(distance > 100) {
+		velX = (float) ((-1 / distance) * diffX);
+		velY = (float) ((-1 / distance) * diffY);
+		
+		}
+		
+		
+		if (y <= 0 || y >= Game.HEIGHT - 48)
+			handler.removeObject(this);
+		if (x <= 0 || x >= Game.WIDTH - 16)
+			handler.removeObject(this);
+		
 
+		
 		handler.addObject(new Trail(x, y, ID.Trail, homerColor, 16, 16, 0.02f, handler));
 	}
 
