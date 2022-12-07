@@ -2,7 +2,7 @@ package erq.letsbuildagame.etc;
 
 /*	Enemy Ideas
  * 
- * HomerEnemy: low-tracking homing missle SUCCESS, Homer works as intended but will be improved on
+ * HomerEnemy: low-tracking homing missile *SUCCESS, Homer works as intended but will be improved on*
  * 
  * SonicEnemy: Super sonic tracker with delay
  * 

@@ -14,10 +14,18 @@ public class Menu extends MouseAdapter {
 	private Game game;
 	private Handler handler;
 	private Random r = new Random();
+	private GameObject player;
+	private int timer = 100;// timer used to get close, stop, then hyper speed tp player
+
 
 	public Menu(Game game, Handler handler) {
 		this.game = game;
 		this.handler = handler;
+		
+		for (int i = 0; i < handler.object.size(); i++) {
+			if (handler.object.get(i).getID() == ID.Player)
+				player = handler.object.get(i);
+		}
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -35,11 +43,12 @@ public class Menu extends MouseAdapter {
 
 				handler.clearEnemies();
 
-				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
-						handler));
+				//handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
+				//		handler));
 
-				// handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH
-				// -50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
+				handler.addObject(new SonicEnemy(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.SonicEnemy,
+								handler));
+				// +r.nextInt(10)-5
 			}
 
 			// Help Button
@@ -81,7 +90,7 @@ public class Menu extends MouseAdapter {
 	}
 
 	public void tick() {
-
+		
 	}
 
 	public void render(Graphics g) {

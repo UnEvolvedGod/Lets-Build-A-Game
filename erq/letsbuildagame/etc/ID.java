@@ -4,5 +4,5 @@ package erq.letsbuildagame.etc;
 public enum ID {
 
 	Player(), BasicEnemy(), Trail(), FastEnemy(), SmartEnemy(), EnemyBoss(), RepeaterEnemy(), HomerEnemy(),
-	MenuParticle();
+	MenuParticle(), SonicEnemy();
 }

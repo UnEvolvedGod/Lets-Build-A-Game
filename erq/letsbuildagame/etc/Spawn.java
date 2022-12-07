@@ -33,10 +33,8 @@ public class Spawn {
 			// Each case is a new level, with different features and enemies coming on
 			// certain levels
 
-			// handler.addObject(new RepeaterEnemy(r.nextInt(Game.WIDTH -
-			// 50),r.nextInt(Game.HEIGHT- 50), ID.RepeaterEnemy, handler));
-
-			switch (hud.getLevel()) {
+	
+			/*switch (hud.getLevel()) {
 			case 2:
 				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
 						handler));
@@ -77,7 +75,7 @@ public class Spawn {
 
 				break;
 
-			}
+			}*/
 
 		}
 
