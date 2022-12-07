@@ -92,11 +92,11 @@ public class Menu extends MouseAdapter {
 
 			g.setFont(fnt);
 			g.setColor(Color.white);
-			g.drawString("Menu", 240, 90);
+			g.drawString("Scooby Doo", 170, 90);
 
 			g.setFont(fnt1);
 			g.setColor(Color.white);
-			g.drawString("Play", 280, 190);
+			g.drawString("Start", 280, 190);
 
 			g.setFont(fnt1);
 			g.setColor(Color.white);
@@ -122,7 +122,7 @@ public class Menu extends MouseAdapter {
 
 			g.setFont(fnt);
 			g.setColor(Color.white);
-			g.drawString("Help", 260, 90);
+			g.drawString("How to Play", 170, 90);
 
 			g.setFont(fnt1);
 			g.setColor(Color.white);
