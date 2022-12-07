@@ -55,8 +55,13 @@ public class Game extends Canvas implements Runnable{
 		//Handles spawns for different levels 
 		spawner = new Spawn(handler, hud);
 		
-		
-		
+		if(gameState == STATE.Menu) {
+			for(int i = 0; i < 20; i++) {
+				handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
+
+			}
+			 
+		}
 		
 		
 		

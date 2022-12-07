@@ -10,5 +10,5 @@ public enum ID {
 	SmartEnemy(),
 	EnemyBoss(),
 	RepeaterEnemy(),
-	HomerEnemy;
+	HomerEnemy(), MenuParticle();
 }

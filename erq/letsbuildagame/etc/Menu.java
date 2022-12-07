@@ -24,15 +24,16 @@ public class Menu extends MouseAdapter {
 		int mx = e.getX();
 		int my = e.getY();
 
-		// 26:52
-		// https://youtu.be/urye2D3_mss?t=1612
 		if (game.gameState == STATE.Menu) {
 
 			// Play button
 			if (mouseOver(mx, my, 210, 150, 200, 64)) {
+
 				game.gameState = STATE.Game;
 
 				handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
+
+				handler.clearEnemies();
 
 				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
 						handler));

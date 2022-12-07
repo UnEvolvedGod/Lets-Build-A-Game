@@ -19,7 +19,7 @@ public class EnemyBossBullet extends GameObject{
 		this.handler = handler;
 		
 		//randomizes the x vel from -5 to 5
-		velX = (r.nextInt(5- -5) + -5);
+		velX = (r.nextInt(5- -5) + -5); 
 		velY = 5;
 		
 	}
