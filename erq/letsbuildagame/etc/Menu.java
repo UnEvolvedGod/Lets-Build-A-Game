@@ -23,29 +23,34 @@ public class Menu extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
-		
-		//26:52
-		//https://youtu.be/urye2D3_mss?t=1612
-		if(game.gameState == STATE.Menu) {
-			
-		}
-			
+
+		// 26:52
+		// https://youtu.be/urye2D3_mss?t=1612
+		if (game.gameState == STATE.Menu) {
+
 			// Play button
-		if (mouseOver(mx, my, 210, 150, 200, 64)) {
-			game.gameState = STATE.Game;
+			if (mouseOver(mx, my, 210, 150, 200, 64)) {
+				game.gameState = STATE.Game;
 
-			handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
+				handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
 
-			handler.addObject(
-					new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
+				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
+						handler));
 
-			// handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH -
-			// 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
-		}
+				// handler.addObject(new HomerEnemy(r.nextInt(Game.WIDTH -
+				// 50),r.nextInt(Game.HEIGHT- 50), ID.HomerEnemy, handler));
+			}
 
-		// Help Button
-		if (mouseOver(mx, my, 210, 250, 200, 64)) {
-			game.gameState = STATE.Help;
+			// Help Button
+			if (mouseOver(mx, my, 210, 250, 200, 64)) {
+				game.gameState = STATE.Help;
+			}
+
+			// Quit button
+			if (mouseOver(mx, my, 210, 350, 200, 64)) {
+				System.exit(1);
+			}
+
 		}
 
 		// Back Button from help screen
@@ -54,11 +59,6 @@ public class Menu extends MouseAdapter {
 				game.gameState = STATE.Menu;
 				return;
 			}
-		}
-
-		// Quit button
-		if (mouseOver(mx, my, 210, 350, 200, 64)) {
-			System.exit(1);
 		}
 
 	}
@@ -129,8 +129,7 @@ public class Menu extends MouseAdapter {
 			g.drawString("Earn points for every second alive", 110, 195);
 			g.drawString("Survive as long as possible", 150, 240);
 			g.drawString("Good luck", 240, 285);
-			
-			
+
 			g.setFont(fnt);
 			g.setColor(Color.white);
 			g.drawRect(410, 350, 200, 64);
