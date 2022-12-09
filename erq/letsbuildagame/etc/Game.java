@@ -176,7 +176,10 @@ public class Game extends Canvas implements Runnable {
 			HUD.HEALTH = 100;
 			gameState = STATE.End;
 			handler.clearEnemies();
-	
+			for (int i = 0; i < 20; i++) {
+				handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
+
+			}
 			
 		}
 			
