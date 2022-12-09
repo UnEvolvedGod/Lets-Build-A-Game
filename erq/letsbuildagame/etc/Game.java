@@ -28,6 +28,8 @@ public class Game extends Canvas implements Runnable {
 	 * During the Game state, this is where the gameplay is active. While Menu state
 	 * is active, the Game state is unactive and vise versa.
 	 */
+	
+	//https://youtu.be/K_CfBxvpd9A?t=477
 	public enum STATE {
 		Menu,Select, Help, Game, End
 	};
