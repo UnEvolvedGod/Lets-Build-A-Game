@@ -34,6 +34,8 @@ public class Player extends GameObject {
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.2f, handler));
 		// Trail added to player
+		
+		
 	}
 
 	// method used for collsion

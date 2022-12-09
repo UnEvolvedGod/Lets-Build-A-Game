@@ -27,15 +27,17 @@ public class Game extends Canvas implements Runnable {
 	 * is active, the Game state is unactive and vise versa.
 	 */
 	public enum STATE {
-		Menu, Help, Game
+		Menu, Help, Game, End
 	};
 
-	public STATE gameState = STATE.Menu;
+	public static STATE gameState = STATE.Menu;
 
 	public Game() {
 		// handles all objects
 		handler = new Handler();
-		menu = new Menu(this, handler);
+		// health bar and other hud things
+				hud = new HUD();
+		menu = new Menu(this, handler,hud);
 
 		// handles user input
 		this.addKeyListener(new KeyInput(handler));
@@ -44,8 +46,7 @@ public class Game extends Canvas implements Runnable {
 		// Window game is played on
 		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
 
-		// health bar and other hud things
-		hud = new HUD();
+		
 
 		// Handles spawns for different levels
 		spawner = new Spawn(handler, hud);
@@ -156,7 +157,7 @@ public class Game extends Canvas implements Runnable {
 		// Runs game
 		if (gameState == STATE.Game) {
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help) {
+		} else if (gameState == STATE.Menu || gameState == STATE.Help|| gameState == STATE.End) {
 			menu.render(g);
 		}
 
@@ -167,13 +168,24 @@ public class Game extends Canvas implements Runnable {
 
 	// keeps objects updated every tick/second
 	private void tick() {
+		
+		
 		handler.tick();
 
+		if(HUD.HEALTH <= 0) {
+			HUD.HEALTH = 100;
+			gameState = STATE.End;
+			handler.clearEnemies();
+	
+			
+		}
+			
+		
 		// Runs game stops menu
 		if (gameState == STATE.Game) {
 			hud.tick();
 			spawner.tick();
-		} else if (gameState == STATE.Menu) {
+		} else if (gameState == STATE.Menu || gameState == STATE.End) {
 			menu.tick();
 		}
 

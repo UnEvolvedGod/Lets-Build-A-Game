@@ -14,7 +14,8 @@ public class HUD {
 
 	private int score = 0;
 	private int level = 1;
-
+	private int highScore = 0;
+	
 	public void tick() {
 
 		// Keeps health bar from leaving screen
@@ -25,6 +26,9 @@ public class HUD {
 		greenValue = HEALTH * 2;
 		redValue = 255 - greenValue;
 		score++;
+		
+		if(score > highScore)
+			highScore = score;
 	}
 
 	// renders everything onto the screen
@@ -50,7 +54,7 @@ public class HUD {
 
 	// setters and getters
 
-	public int score(int score) {
+	public int setScore(int score) {
 		return this.score = score;
 	}
 
@@ -64,5 +68,9 @@ public class HUD {
 
 	public int setLevel(int level) {
 		return this.level = level;
+	}
+	
+	public int getHighScore() {
+		return highScore;
 	}
 }
