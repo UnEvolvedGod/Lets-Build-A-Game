@@ -20,6 +20,8 @@ public class Game extends Canvas implements Runnable {
 	private Menu menu;
 	private Handler handler;
 
+	public static boolean paused = false;
+
 	/*
 	 * When the program is run there are 2 states, The Menu state and the Game
 	 * state. During menu state they will be able to pause the game, buy items, etc.
@@ -27,7 +29,7 @@ public class Game extends Canvas implements Runnable {
 	 * is active, the Game state is unactive and vise versa.
 	 */
 	public enum STATE {
-		Menu, Help, Game, End
+		Menu,Select, Help, Game, End
 	};
 
 	public static STATE gameState = STATE.Menu;
@@ -36,21 +38,19 @@ public class Game extends Canvas implements Runnable {
 		// handles all objects
 		handler = new Handler();
 		// health bar and other hud things
-				hud = new HUD();
-		menu = new Menu(this, handler,hud);
+		hud = new HUD();
+		menu = new Menu(this, handler, hud);
 
 		// handles user input
-		this.addKeyListener(new KeyInput(handler));
+		this.addKeyListener(new KeyInput(handler, this));
 		this.addMouseListener(menu);
-		
+
 		AudioPlayer.load();
-		
+
 		AudioPlayer.getMusic("battle_music").loop();
 
 		// Window game is played on
 		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
-
-		
 
 		// Handles spawns for different levels
 		spawner = new Spawn(handler, hud);
@@ -158,10 +158,18 @@ public class Game extends Canvas implements Runnable {
 
 		handler.render(g);
 
+		//Pause menu
+		if (paused) {
+			//Font fnt = new Font("arial", 1, 50);
+			//g.setFont(fnt);
+			g.setColor(Color.white);
+			g.drawString("PAUSED", 280, 225);
+		}
+
 		// Runs game
 		if (gameState == STATE.Game) {
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help|| gameState == STATE.End) {
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
 			menu.render(g);
 		}
 
@@ -172,28 +180,32 @@ public class Game extends Canvas implements Runnable {
 
 	// keeps objects updated every tick/second
 	private void tick() {
-		
-		
-		handler.tick();
 
-		if(HUD.HEALTH <= 0) {
-			HUD.HEALTH = 100;
-			gameState = STATE.End;
-			handler.clearEnemies();
-			for (int i = 0; i < 20; i++) {
-				handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
-
-			}
-			
-		}
-			
 		
+
 		// Runs game stops menu
 		if (gameState == STATE.Game) {
-			hud.tick();
-			spawner.tick();
+
+			if (!paused) {
+
+				hud.tick();
+				spawner.tick();
+				handler.tick();
+				if (HUD.HEALTH <= 0) {
+					HUD.HEALTH = 100;
+					gameState = STATE.End;
+					handler.clearEnemies();
+					for (int i = 0; i < 20; i++) {
+						handler.addObject(
+								new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
+
+					}
+				}
+			}
+
 		} else if (gameState == STATE.Menu || gameState == STATE.End) {
 			menu.tick();
+			handler.tick();
 		}
 
 	}
