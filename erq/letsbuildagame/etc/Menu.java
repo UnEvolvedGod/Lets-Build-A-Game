@@ -43,12 +43,9 @@ public class Menu extends MouseAdapter {
 
 				handler.clearEnemies();
 
-				//handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
-				//		handler));
+				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
+						handler));
 
-				handler.addObject(new SonicEnemy(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.SonicEnemy,
-								handler));
-				// +r.nextInt(10)-5
 			}
 
 			// Help Button

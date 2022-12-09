@@ -10,9 +10,16 @@ public class SonicEnemy extends GameObject {
 	private GameObject player;
 	Color SonicColor = new Color(255, 255, 0);
 	private int timer = 100;// timer used to get close, stop, then hyper speed tp player
-	private int timer1 = 500;// timer used to get close, stop, then hyper speed tp player
+	private int timer1 = 500;// timer used to kill it after # of ticks
 
-
+	/*Will spawn in 1 of 4 spaces,
+	 * 128,120
+	 * 128, 300
+	 * 512, 120
+	 * 512, 300
+	 * */
+	
+	
 	// Objects location
 	public SonicEnemy(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
@@ -25,8 +32,8 @@ public class SonicEnemy extends GameObject {
 				player = handler.object.get(i);
 		}
 		
-		velX = 1;
-		velY = 1;
+		velX = (float) .50;
+		velY = (float) .50;
 
 	}
 
@@ -57,7 +64,7 @@ public class SonicEnemy extends GameObject {
 				timer1--;
 			}
 		
-	
+		
 		
 		
 		if (y <= 0 || y >= Game.HEIGHT - 48)

@@ -8,6 +8,7 @@ public class Player extends GameObject {
 	Random r = new Random();
 	Handler handler;
 
+	
 	// Object location and id
 	public Player(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
@@ -20,6 +21,10 @@ public class Player extends GameObject {
 		x += velX;
 		y += velY;
 
+		
+		//System.out.println("y:"+y);
+		//System.out.println("x: "+x);
+		
 		// Prevents player object from leaving borders
 		x = Game.clamp(x, 0, Game.WIDTH - 37);
 		y = Game.clamp(y, 0, Game.HEIGHT - 60);
@@ -61,6 +66,13 @@ public class Player extends GameObject {
 					HUD.HEALTH -= 1;
 				}
 
+			}else if(tempObject.getID() == ID.SonicEnemy) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					// collsion code
+					HUD.HEALTH -= 25;
+					handler.removeObject(tempObject);
+
+				}
 			}
 		}
 

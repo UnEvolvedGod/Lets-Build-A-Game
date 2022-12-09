@@ -9,7 +9,12 @@ public class Spawn {
 	private HUD hud;
 	Random r = new Random();
 	private int scoreKeep = 0;
-
+	private int sonicX;
+	private int sonicY;
+	private int spawn = r.nextInt(4);
+	
+	
+	
 	public Spawn(Handler handler, HUD hud) {
 		this.handler = handler;
 		this.hud = hud;
@@ -34,7 +39,7 @@ public class Spawn {
 			// certain levels
 
 	
-			/*switch (hud.getLevel()) {
+		switch (hud.getLevel()) {
 			case 2:
 				handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,
 						handler));
@@ -61,6 +66,11 @@ public class Spawn {
 						new HomerEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.HomerEnemy, handler));
 
 				break;
+			case 8:
+				handler.addObject(new SonicEnemy(512 , 300, ID.SonicEnemy,
+						handler));
+
+				break;
 
 			case 10:
 				// gets rid of all enemies preparing for boss
@@ -75,9 +85,13 @@ public class Spawn {
 
 				break;
 
-			}*/
+			}
 
 		}
 
 	}
+	
+	
+	
+	
 }
