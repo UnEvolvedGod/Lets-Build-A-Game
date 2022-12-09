@@ -42,6 +42,10 @@ public class Game extends Canvas implements Runnable {
 		// handles user input
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(menu);
+		
+		AudioPlayer.load();
+		
+		AudioPlayer.getMusic("battle_music").loop();
 
 		// Window game is played on
 		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
