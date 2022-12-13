@@ -49,7 +49,7 @@ public class Game extends Canvas implements Runnable {
 
 		AudioPlayer.load();
 
-		AudioPlayer.getMusic("battle_music").loop();
+		AudioPlayer.getMusic("background_music").loop();
 
 		// Window game is played on
 		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
