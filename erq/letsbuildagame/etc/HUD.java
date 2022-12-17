@@ -1,6 +1,7 @@
 package erq.letsbuildagame.etc;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 //Health, score, shop, other on screen info
@@ -46,9 +47,13 @@ public class HUD {
 		g.setColor(Color.white);
 		g.drawRect(15, 15, 200, 32);
 
+		
+		Font fnt = new Font("arial", 1, 50);
+
+		g.setFont(fnt);
 		// Shows game level and score
-		g.drawString("Score: " + score, 15, 64);
-		g.drawString("Level: " + level, 15, 80);
+		g.drawString(""+score,490, 50);
+		
 
 	}
 
